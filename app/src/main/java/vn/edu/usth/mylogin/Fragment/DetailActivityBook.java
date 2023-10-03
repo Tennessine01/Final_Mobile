@@ -16,7 +16,7 @@ import vn.edu.usth.mylogin.R;
 public class DetailActivityBook extends AppCompatActivity {
     //private Button addToCartBtn;
     private TextView plusBtn, minusBtn, titleTxt, feeTxt, descriptionTxt, numberOrderTxt, authorTxt, ratingTxt, timeTxt;
-    private ImageView picFood;
+    private ImageView picBook;
     private BookDomain object;
     private int numberOrder = 1;
     private ManagementMyLibrary managmentMyLibrary;
@@ -37,9 +37,7 @@ public class DetailActivityBook extends AppCompatActivity {
         object = (BookDomain) getIntent().getSerializableExtra("object");
 
         int drawableResourceId = this.getResources().getIdentifier(object.getPicUrl(), "drawable", this.getPackageName());
-        Glide.with(this)
-                .load(drawableResourceId)
-                .into(picFood);
+        Glide.with(this).load(drawableResourceId).into(picBook);
 
         titleTxt.setText(object.getTitle());
         //feeTxt.setText("$" + object.getPrice());
@@ -54,7 +52,7 @@ public class DetailActivityBook extends AppCompatActivity {
         timeTxt = findViewById(R.id.timeTxt);
         titleTxt=findViewById(R.id.titleTxt);
         descriptionTxt = findViewById(R.id.descriptionTxt);
-        picFood = findViewById(R.id.bookPic);
+        picBook = findViewById(R.id.bookPic);
         authorTxt = findViewById(R.id.AuthorTxt);
         ratingTxt = findViewById(R.id.ratingTxt);
     }
