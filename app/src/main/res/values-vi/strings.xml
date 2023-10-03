@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">My Library</string>
+    <string name="welcome">Xin chào</string>
+    <string name="login_text">Hãy đăng nhập bằng thông tin của bạn</string>
+    <string name="email_text">Địa chỉ Email</string>
+    <string name="password_text">Mật khẩu</string>
+    <string name="remember_text">Ghi nhớ tôi</string>
+    <string name="forgot_text">Quên mật khẩu?</string>
+    <string name="login_button">Đăng nhập</string>
+    <string name="register_text">Chưa có tài khoản? Đăng ký tại đây</string>
+    <string name="continue_text">Đăng nhập bằng</string>
+
+    <string name="register_title">Đăng ký</string>
+    <string name="confirm_password">Xác nhận mật khẩu</string>
+    <string name="term_of_use">Đồng ý với điều khoản</string>
+
+    <string name="reset_password_title">Đặt lại mật khẩu</string>
+    <string name="confirm">Xác nhận</string>
+
+    <string name="Enter_email">Nhập email của bạn</string>
+    <string name="back">Quay lại</string>
+
+    <string name="Logout">Đăng xuất</string>
+    <string name="menu_Open">Open</string>
+    <string name="menu_Close">Close</string>
+    <string name="Search">Kìm kiếm</string>
+    <string name="Tag">Tags</string>
+    <string name="Discovery">Khám phá</string>
+
+    <string name="Horror">Kinh dị</string>
+    <string name="History">Lịch sử</string>
+    <string name="Art">Nghệ thuật</string>
+    <string name="Story">Đời sống</string>
+    <string name="Business">Kinh doanh</string>
+    <string name="Comedy">Hài kịch</string>
+    <string name="Cooking">Nấu ăn</string>
+    <string name="Tech">Công nghệ</string>
+    <string name="Education">Giáo dục</string>
+    <string name="Romance">Lãng mạn</string>
+
+    <string name="MyLibrary">Thư viện của tôi</string>
+    <string name="EmptyLibrary">Your Library is empty</string>
+
+    <string name="Home">Trang chủ</string>
+    <string name="Favourite">Sách yêu thích</string>
+    <string name="Recommend">Được đề xuất cho bạn</string>
+    <string name="New">Sách mới</string>
+
+    <string name="Book_name">Tên sách</string>
+    <string name="Author">Tác giả</string>
+    <string name="Since">Viết năm</string>
+    <string name="Rating">Đánh giá</string>
+    <string name="Add">Thêm vào thư viện của bạn</string>
+    <string name="Read">Đọc sách</string>
+    <string name="Description">Mô tả</string>
+</resources>

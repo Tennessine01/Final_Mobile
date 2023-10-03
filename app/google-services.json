@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "743360533697",
+    "project_id": "mylogin-18387",
+    "storage_bucket": "mylogin-18387.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:743360533697:android:8b1088b2b964077987f040",
+        "android_client_info": {
+          "package_name": "com.example.project1301"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALHzzs6cndVLHmjPW-2Gl-U3oWzpYU8ps"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:743360533697:android:83625a284bbca01387f040",
+        "android_client_info": {
+          "package_name": "vn.edu.usth.mylogin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALHzzs6cndVLHmjPW-2Gl-U3oWzpYU8ps"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

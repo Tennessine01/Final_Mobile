@@ -1,0 +1,62 @@
+<resources>
+    <string name="app_name">My Library</string>
+    <string name="welcome">Welcome</string>
+    <string name="login_text">Please login with your information</string>
+    <string name="email_text">Email Address</string>
+    <string name="password_text">Password</string>
+    <string name="remember_text">Remember me</string>
+    <string name="forgot_text">Forgotten password?</string>
+    <string name="login_button">Login</string>
+    <string name="register_text">Don\'t have an account? Register here</string>
+    <string name="continue_text">Continue with</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="register_title">Register</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="term_of_use">Agree with term of use</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="reset_password_title">Reset Password</string>
+    <string name="confirm">Confirm</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="Enter_email">Enter email</string>
+    <string name="back">Back</string>
+
+    <string name="Logout">Logout</string>
+    <string name="menu_Open">Open</string>
+    <string name="menu_Close">Close</string>
+    <string name="Search">Search</string>
+    <string name="Tag">Tags</string>
+    <string name="Discovery">Discover</string>
+
+    <string name="Horror">Horror</string>
+    <string name="History">History</string>
+    <string name="Art">Art</string>
+    <string name="Story">Life Story</string>
+    <string name="Business">Business</string>
+    <string name="Comedy">Comedy</string>
+    <string name="Cooking">Cooking</string>
+    <string name="Tech">Technology</string>
+    <string name="Education">Education</string>
+    <string name="Romance">Romance</string>
+
+    <string name="MyLibrary">My Library</string>
+    <string name="EmptyLibrary">Your Library is empty</string>
+
+    <string name="Home">Home</string>
+    <string name="Favourite">Favourite books</string>
+    <string name="Recommend">Recommended for you</string>
+    <string name="New">New books</string>
+
+    <string name="Book_name">Book name</string>
+    <string name="Author">Author</string>
+    <string name="Since">Written</string>
+    <string name="Rating">Rating</string>
+    <string name="Add">Add to your library</string>
+    <string name="Read">Read book</string>
+    <string name="Description">Description</string>
+
+    <string name="Welcome_back">Welcome back</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

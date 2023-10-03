@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">My Library</string>
+    <string name="welcome">Wilkommen</string>
+    <string name="login_text">Bitte loggen mit Ihren Daten ein</string>
+    <string name="email_text">E-Mail-Adresse</string>
+    <string name="password_text">Passwort</string>
+    <string name="remember_text">Erinnere mich</string>
+    <string name="forgot_text">Passwort vergessen</string>
+    <string name="login_button">Anmeldung</string>
+    <string name="register_text">Sie haben noch kein Konto? Hier registrieren</string>
+    <string name="continue_text">Weitermachen mit</string>
+
+    <string name="register_title">Registrieren</string>
+    <string name="confirm_password">Bestätige das Passwort</string>
+    <string name="term_of_use">Stimmen Sie den Nutzungsbedingungen zu</string>
+
+    <string name="reset_password_title">Passwort zurücksetzen</string>
+    <string name="confirm">Bestätigen</string>
+
+    <string name="Enter_email">Senden Sie ihre E-Mail</string>
+    <string name="back">Zurück</string>
+
+    <string name="Logout">Ausloggen</string>
+    <string name="menu_Open">Open</string>
+    <string name="menu_Close">Close</string>
+    <string name="Search">Suchen</string>
+    <string name="Tag">Tags</string>
+    <string name="Discovery">Entdecken</string>
+
+    <string name="Horror">Grusel</string>
+    <string name="History">Geschichte</string>
+    <string name="Art">Kunst</string>
+    <string name="Story">Lebensgeschichte</string>
+    <string name="Business">Geschäft</string>
+    <string name="Comedy">Komödie</string>
+    <string name="Cooking">Kochen</string>
+    <string name="Tech">Technologie</string>
+    <string name="Education">Ausbildung</string>
+    <string name="Romance">Romantik</string>
+
+    <string name="MyLibrary">Meine Bibliothek</string>
+    <string name="EmptyLibrary">Ihre Bibliothek ist leer</string>
+
+    <string name="Home">Heim</string>
+    <string name="Favourite">Lieblingsbücher</string>
+    <string name="Recommend">Für dich empfohlen</string>
+    <string name="New">Neue Bücher</string>
+
+    <string name="Book_name">Buchname</string>
+    <string name="Author">Autor/Autorin</string>
+    <string name="Since">Geschrieben</string>
+    <string name="Rating">Bewertung</string>
+    <string name="Add">Zu Ihrer Bibliothek hinzufügen</string>
+    <string name="Read">Buch lesen</string>
+    <string name="Description">Beschreibung</string>
+
+</resources>
