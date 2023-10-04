@@ -88,7 +88,7 @@ public class LibraryListAdapter extends RecyclerView.Adapter<LibraryListAdapter.
             super(itemView);
             title = itemView.findViewById(R.id.titleTxt);
             pic = itemView.findViewById(R.id.pic);
-            minusItem = itemView.findViewById(R.id.minusCartBtn);
+            minusItem = itemView.findViewById(R.id.remove_book);
             //num = itemView.findViewById(R.id.numberItemTxt);
         }
     }

@@ -120,8 +120,8 @@
 
                         <ImageView
                             android:id="@+id/person_icon"
-                            android:layout_width="23dp"
-                            android:layout_height="27dp"
+                            android:layout_width="21dp"
+                            android:layout_height="23dp"
                             android:layout_marginStart="16dp"
                             android:layout_marginTop="16dp"
                             app:layout_constraintStart_toStartOf="parent"

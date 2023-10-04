@@ -12,11 +12,6 @@
         android:orientation="vertical"
         android:gravity="center"
         android:padding="28dp">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/book_icon">
-        </ImageView>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
