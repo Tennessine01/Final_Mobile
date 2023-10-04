@@ -96,7 +96,6 @@ public class Home extends Fragment {
                         adapterBookList.notifyItemInserted(items.size() - 1);
                     }
                 } else {
-                    // Xử lý lỗi ở đây
                 }
             }
 
