@@ -80,8 +80,8 @@ public class LibraryListAdapter extends RecyclerView.Adapter<LibraryListAdapter.
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView title, minusItem;
-        ImageView pic;
+        TextView title;
+        ImageView pic, minusItem;
         TextView totalEachItem, num;
 
         public ViewHolder(@NonNull View itemView) {
@@ -89,7 +89,6 @@ public class LibraryListAdapter extends RecyclerView.Adapter<LibraryListAdapter.
             title = itemView.findViewById(R.id.titleTxt);
             pic = itemView.findViewById(R.id.pic);
             minusItem = itemView.findViewById(R.id.remove_book);
-            //num = itemView.findViewById(R.id.numberItemTxt);
         }
     }
 }
