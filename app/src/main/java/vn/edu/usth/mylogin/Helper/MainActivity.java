@@ -75,6 +75,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                     if (item.getItemId() == R.id.home_view) {
+
                         FragmentTransaction replaceFragment= getSupportFragmentManager().beginTransaction();
                         replaceFragment.replace(R.id.container, home).commit();
 
