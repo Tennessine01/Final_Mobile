@@ -21,7 +21,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
 
     private TextView inputEmail;
 
-    private Button btnReset, btnBack;
+    private Button btnReset;
 
     private FirebaseAuth auth;
 
@@ -36,18 +36,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
 
         btnReset = findViewById(R.id.btn_reset_password);
 
-        btnBack = findViewById(R.id.back_button_2);
-
         auth = FirebaseAuth.getInstance();
-
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ResetPasswordActivity.this, Login.class);
-                startActivity(intent);
-                finish();
-            }
-        });
 
         btnReset.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,6 +63,12 @@ public class ResetPasswordActivity extends AppCompatActivity {
                         });
             }
         });
+    }
+    public void onBackPressed(){
+        super.onBackPressed();
+        Intent intent = new Intent(getApplicationContext(), Login.class);
+        startActivity(intent);
+        finish();
     }
 
 }

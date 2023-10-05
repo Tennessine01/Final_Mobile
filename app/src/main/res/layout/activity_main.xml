@@ -8,12 +8,12 @@
     android:id="@+id/drawer"
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
-
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:id="@+id/navigationView"
+        android:id="@+id/naviView"
         app:headerLayout="@layout/header_resourse"
+        app:menu="@menu/sidemenu"
         android:layout_gravity="start">
     </com.google.android.material.navigation.NavigationView>
     <LinearLayout
@@ -27,17 +27,6 @@
         android:background="@color/primary4"
         android:minHeight="?attr/actionBarSize"
         app:navigationIcon="@drawable/menu">
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/Logout"
-                android:id="@+id/logout"
-                android:layout_alignParentRight="true">
-            </Button>
-        </RelativeLayout>
     </androidx.appcompat.widget.Toolbar>
     <RelativeLayout
         android:layout_width="match_parent"
@@ -57,7 +46,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/logout"
                     android:text="@string/Welcome_back"
                     android:textColor="@color/black"
                     android:textSize="40dp"></TextView>
@@ -66,7 +54,6 @@
                     android:id="@+id/user_details"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/logout"
                     android:text="User"
                     android:textColor="@color/black"></TextView>
             </LinearLayout>

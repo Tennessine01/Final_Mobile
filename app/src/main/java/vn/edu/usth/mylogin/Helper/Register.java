@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -24,7 +25,8 @@ public class Register extends AppCompatActivity {
     CheckBox checkbox;
     TextView emailRegisText, passwordRegisText, passwordConfirmRegisText;
     FirebaseAuth mAuth;
-    Button buttonReg, buttonBack;
+    Button buttonReg;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,18 +36,6 @@ public class Register extends AppCompatActivity {
         passwordRegisText = findViewById(R.id.Register_Password);
         passwordConfirmRegisText = findViewById(R.id.Register_Confirm_Password);
         checkbox = findViewById(R.id.Register_Agreement);
-
-
-        buttonBack = findViewById(R.id.Back_button);
-        buttonBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Login.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-
         buttonReg = findViewById(R.id.Register_Button);
         buttonReg.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -56,6 +46,7 @@ public class Register extends AppCompatActivity {
                 password = passwordRegisText.getText().toString();
                 con_password = passwordConfirmRegisText.getText().toString();
                 check = checkbox;
+
                 if (TextUtils.isEmpty(email)) {
                     Toast.makeText(Register.this, "Enter email", Toast.LENGTH_SHORT).show();
                     return;
@@ -93,5 +84,11 @@ public class Register extends AppCompatActivity {
 
             }
         });
+    }
+    public void onBackPressed(){
+        super.onBackPressed();
+        Intent intent = new Intent(getApplicationContext(), Login.class);
+        startActivity(intent);
+        finish();
     }
 }

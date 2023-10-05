@@ -6,6 +6,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -27,19 +28,15 @@ import vn.edu.usth.mylogin.Fragment.Search;
 import vn.edu.usth.mylogin.R;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
-
-
     MyLibrary myLibrary = new MyLibrary();
     Home home = new Home();
     Search search = new Search();
     BottomNavigationView navigationView;
     FirebaseAuth auth;
-    Button button;
     TextView textView;
     FirebaseUser user;
     DrawerLayout drawerLayout;
     NavigationView navigationView2;
-
     Toolbar toolbar;
     ActionBarDrawerToggle toggle;
 
@@ -49,7 +46,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         auth = FirebaseAuth.getInstance();
-        button = findViewById(R.id.logout);
         textView = findViewById(R.id.user_details);
         user = auth.getCurrentUser();
         if (user == null) {
@@ -60,51 +56,45 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             textView.setText(user.getEmail());
         }
 
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(getApplicationContext(), Login.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-
-        navigationView = findViewById(R.id.bottom_nav);
-        navigationView.setOnItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                    if (item.getItemId() == R.id.home_view) {
-
-                        FragmentTransaction replaceFragment= getSupportFragmentManager().beginTransaction();
-                        replaceFragment.replace(R.id.container, home).commit();
-
-                    } else if (item.getItemId() == R.id.myLibrary_view) {
-                        FragmentTransaction replaceFragment= getSupportFragmentManager().beginTransaction();
-                        replaceFragment.replace(R.id.container, myLibrary).commit();
-                    } else
-                    {
-                        FragmentTransaction replaceFragment= getSupportFragmentManager().beginTransaction();
-                        replaceFragment.replace(R.id.container, search).commit();
-                    }
-                    return true;
-                }
-        });
-
         drawerLayout = findViewById(R.id.drawer);
-        navigationView2 = findViewById(R.id.navigationView);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.menu_Open, R.string.menu_Close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
+        navigationView2 = findViewById(R.id.naviView);
         navigationView2.setNavigationItemSelectedListener(this);
+        navigationView2.bringToFront();
 
+        navigationView = findViewById(R.id.bottom_nav);
+        navigationView.setOnItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                    if (item.getItemId() == R.id.home_view) {
+                        FragmentTransaction replaceFragment= getSupportFragmentManager().beginTransaction();
+                        replaceFragment.replace(R.id.container, home).commit();
+
+                    } else if (item.getItemId() == R.id.myLibrary_view) {
+                        FragmentTransaction replaceFragment = getSupportFragmentManager().beginTransaction();
+                        replaceFragment.replace(R.id.container, myLibrary).commit();
+                    }
+                    else
+                    {
+                        FragmentTransaction replaceFragment = getSupportFragmentManager().beginTransaction();
+                        replaceFragment.replace(R.id.container, search).commit();
+                    }
+                    return true;
+                }
+        });
     }
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == 23456789) {
+        if (item.getItemId() == R.id.logout) {
+            FirebaseAuth.getInstance().signOut();
+            Intent intent = new Intent(getApplicationContext(), Login.class);
+            startActivity(intent);
+            finish();
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
