@@ -48,7 +48,7 @@ public class LibraryListAdapter extends RecyclerView.Adapter<LibraryListAdapter.
     public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.title.setText(listBookSelected.get(position).getTitle());
 
-        int drawableResourceId=holder.itemView.getContext().getResources().getIdentifier("book5","drawable",holder.itemView.getContext().getPackageName());
+        int drawableResourceId=holder.itemView.getContext().getResources().getIdentifier("default_book","drawable",holder.itemView.getContext().getPackageName());
 
         Glide.with(holder.itemView.getContext())
                 .load(listBookSelected.get(position).getPicUrl())

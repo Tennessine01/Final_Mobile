@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -52,7 +53,6 @@ public class Home extends Fragment {
 
         //thiết lập recycler view để hiển thị danh sách theo chiều ngang
         rc.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
-
         String BASE_URL = "https://openlibrary.org";
 
         //retrofit là thư viên dùng để tương tác với api

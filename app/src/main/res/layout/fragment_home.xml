@@ -48,18 +48,19 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginBottom="15dp"
-                    android:text="@string/Favourite"
+                    android:text="@string/love"
                     android:textColor="@color/black"
-                    android:layout_weight="20"/>
+                    android:layout_weight="20" />
             </LinearLayout>
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/HomeView1"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="272dp"
                 android:clipToPadding="false"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
-                android:layout_marginBottom="50dp"/>
+                android:layout_marginBottom="50dp"
+                android:background="@color/primary4"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -71,18 +72,19 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginBottom="15dp"
-                    android:text="@string/New"
+                    android:text="@string/juvenile_literature"
                     android:textColor="@color/black"
                     android:layout_weight="20"/>
             </LinearLayout>
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/HomeView2"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="272dp"
                 android:clipToPadding="false"
                 android:paddingStart="16dp"
                 android:layout_marginBottom="50dp"
-                android:paddingEnd="16dp" />
+                android:paddingEnd="16dp"
+                android:background="@color/primary4"/>
 
 
             <LinearLayout
@@ -96,19 +98,20 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginBottom="15dp"
-                    android:text="@string/Recommend"
+                    android:text="@string/dance"
                     android:textColor="@color/black"
-                    android:layout_weight="20"/>
+                    android:layout_weight="20" />
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/HomeView3"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="272dp"
                 android:clipToPadding="false"
                 android:paddingStart="16dp"
                 android:layout_marginBottom="50dp"
-                android:paddingEnd="16dp" />
+                android:paddingEnd="16dp"
+                android:background="@color/primary4"/>
         </LinearLayout>
     </ScrollView>
 

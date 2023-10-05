@@ -54,6 +54,9 @@
     <string name="Read">Read book</string>
     <string name="Description">Description</string>
     <string name="name">Username</string>
+    <string name="love">Love</string>
+    <string name="juvenile_literature">Juvenile Literature</string>
+    <string name="dance">Dance</string>
 
     <string name="Welcome_back">Welcome back</string>
 
