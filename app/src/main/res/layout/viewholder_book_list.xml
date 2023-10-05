@@ -16,26 +16,24 @@
         app:layout_constraintEnd_toStartOf="@id/guide"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-
-        app:srcCompat="@drawable/book2" />
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guide"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.39" />
+        app:layout_constraintGuide_begin="154dp" />
 
     <!-- Information on the right side -->
 
     <TextView
         android:id="@+id/titleTxt"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="15dp"
-        android:text="title"
+        android:text=""
         android:paddingBottom="10dp"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -58,8 +56,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="1dp"
-        android:text="0"
-
+        android:text=""
         android:textColor="@color/grey"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/imageView7"
@@ -79,7 +76,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="20 min"
+        android:text=""
         app:layout_constraintBottom_toBottomOf="@+id/imageView6"
         app:layout_constraintStart_toEndOf="@+id/imageView6"
         app:layout_constraintTop_toTopOf="@+id/imageView6" />
