@@ -1,152 +1,138 @@
 package vn.edu.usth.mylogin.Fragment;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
+import android.widget.EditText;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.bumptech.glide.Glide;
+import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import vn.edu.usth.mylogin.Adapter.ResultsAdapter;
+import vn.edu.usth.mylogin.Adapter.TopicBookAdapter;
 import vn.edu.usth.mylogin.Domain.BookDomain;
-import vn.edu.usth.mylogin.Helper.ManagementMyLibrary;
 import vn.edu.usth.mylogin.R;
-import vn.edu.usth.mylogin.SearchBook.Book;
-import vn.edu.usth.mylogin.SearchBook.Rate;
-import vn.edu.usth.mylogin.SearchBook.SearchApi;
-import vn.edu.usth.mylogin.SearchBook.SearchBookApi;
+import vn.edu.usth.mylogin.SubjectBook.Search;
+import vn.edu.usth.mylogin.SubjectBook.SearchApi;
+import vn.edu.usth.mylogin.SubjectBook.Subject;
+import vn.edu.usth.mylogin.SubjectBook.SubjectApi;
 
 public class SearchActivity extends AppCompatActivity {
-    private static final String BASE_URL = "https://openlibrary.org";
-    private Button addToLibraryBtn;
-    private TextView plusBtn, minusBtn, titleTxt, feeTxt, descriptionTxt, numberOrderTxt, authorTxt, ratingTxt, timeTxt;
-    private ImageView picBook;
-
-    private Button readBookBtn;
-    private BookDomain object;
-    private int numberOrder = 1;
-    private ManagementMyLibrary managementMyLibrary;
-
+    private ResultsAdapter resultsAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_detail_search);
-
-        managementMyLibrary = new ManagementMyLibrary(SearchActivity.this);
-
-        initView();
-        getBundle();
+        setContentView(R.layout.activity_search);
+        init();
     }
 
-    private void getBundle() {
-        object = (BookDomain) getIntent().getSerializableExtra("object");
+    private void init() {
+        Intent intent = getIntent();
+        String q = intent.getStringExtra("q");
+        EditText editText = findViewById(R.id.editTextSearch_activity);
+        editText.setText(q);
+        getBook(q,5);
+    }
 
-        int drawableResourceId = this.getResources().getIdentifier("book5", "drawable", this.getPackageName());
-        Glide.with(this)
-                .load(object.getPicUrl()).error(drawableResourceId)
-                .into(picBook);
+    private void getBook(String q, int limit) {
+        String BASE_URL = "https://openlibrary.org";
+        Retrofit retrofit = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create()).build();
 
+        String subject = "";
+        SearchApi searchApi = retrofit.create(SearchApi.class);
+        Call<Search> call = searchApi.getResultObject(q, limit);
+        call.enqueue(new Callback<Search>() {
+            @Override
+            public void onResponse(Call<Search> call, Response<Search> response) {
+                if (response.isSuccessful()) {
+                    Search search = response.body();
+                    String subject = "";
+                    List<String> listKey = new ArrayList<String>();
+                    if (search.getDocs() != null && !search.getDocs().isEmpty()) {
+                        Search.Doc doc = search.getDocs().get(0);
+                        if (doc.getSeed() != null && !doc.getSeed().isEmpty()) {
+                            for (String i : doc.getSeed()) {
+                                if (i.contains("/subjects/")) {
+                                    subject = i;
+                                    setBooks(subject.substring(10), findViewById(R.id.result_books));
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                } else {
+                    // Xử lý lỗi ở đây
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Search> call, Throwable t) {
+                // Xử lý lỗi kết nối ở đây
+            }
+        });
+    }
+    private void setBooks(String subject, RecyclerView rc) {
+        ArrayList<BookDomain> items = new ArrayList<>();
+
+        rc.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
 
         String BASE_URL = "https://openlibrary.org";
         Retrofit retrofit = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create()).build();
 
-        SearchBookApi searchApi = retrofit.create(SearchBookApi.class);
-        Call<Book> call = searchApi.getBookObject(object.getDescription().substring(7));
-        titleTxt.setText(object.getTitle());
-        authorTxt.setText(object.getAuthor() + " " );
-        addToLibraryBtn.setText("Add to library");
-        addToLibraryBtn.setOnClickListener(v -> {
-            managementMyLibrary.insertBook(object);
-        });
-
-        readBookBtn.setText("Read Book");
-        readBookBtn.setOnClickListener(new View.OnClickListener() {
+        SubjectApi subjectApi = retrofit.create(SubjectApi.class);
+        int limit = 5;
+        Call<Subject> call = subjectApi.getSubjects(subject, limit);
+        call.enqueue(new Callback<Subject>() {
             @Override
-            public void onClick(View v) {
-
-
-
-//---------------------------------FragmentReadBook ở đây                ////---------------------------------------------------
-                setContentView(R.layout.fragment_readbook);
-                getData();
-            }
-        });
-
-        call.enqueue(new Callback<Book>() {
-            @Override
-            public void onResponse(Call<Book> call, Response<Book> response) {
+            public void onResponse(Call<Subject> call, Response<Subject> response) {
                 if (response.isSuccessful()) {
-                    Book book = response.body();
-                    descriptionTxt.setText(book.getDescription());
-                    timeTxt.setText(book.getCreated().getValue().substring(0,4));
+                    Subject subject = response.body();
+                    List<String> listTitle = new ArrayList<String>();
+                    List<String> authors = new ArrayList<String>();
+                    List<Integer> listCoverId = new ArrayList<Integer>();
+                    List<String> listKey = new ArrayList<String>();
+                    subject.getWorks().forEach(workItem -> {
+                                listTitle.add(workItem.getTitle());
+                                authors.add(workItem.getAuthors().get(0).getName());
+                                listCoverId.add(workItem.getCover_id());
+                                listKey.add(workItem.getKey());
+                            }
+                    );
+
+                    resultsAdapter = new ResultsAdapter(items);
+                    rc.setAdapter(resultsAdapter);
+
+                    for (int i = 0; i < limit; i++) {
+                        try {
+                            items.add(new BookDomain(listTitle.get(i),
+                                    listKey.get(i),
+                                    "Content",
+                                    "https://covers.openlibrary.org/b/id/" + listCoverId.get(i) + "-L.jpg",
+                                    2015, 4, authors.get(i)));
+
+                            resultsAdapter.notifyDataSetChanged();
+                            resultsAdapter.notifyItemInserted(items.size() - 1);
+                        } catch(Exception e) {
+
+                        }
+                    }
                 } else {
                     // Xử lý lỗi ở đây
                 }
             }
 
             @Override
-            public void onFailure(Call<Book> call, Throwable t) {
+            public void onFailure(Call<Subject> call, Throwable t) {
                 // Xử lý lỗi kết nối ở đây
-                descriptionTxt.setText("None");// cho 1 decristion mac dinh vao day
-                timeTxt.setText(object.getTime() + " ");
-            }
-        });
-
-        Call<Rate> callRate = searchApi.getRate(object.getDescription().substring(7));
-        callRate.enqueue(new Callback<Rate>() {
-            @Override
-            public void onResponse(Call<Rate> call, Response<Rate> response) {
-                if (response.isSuccessful()) {
-                    Rate rate = response.body();
-                    ratingTxt.setText((rate.getSummary().getAverage() + " ").substring(0,3));
-                } else {
-                    // Xử lý lỗi ở đây
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Rate> call, Throwable t) {
-                ratingTxt.setText(0);
-            }
-        });
-    }
-
-    private void initView() {
-        addToLibraryBtn = findViewById(R.id.addToLibraryBtn);
-        timeTxt = findViewById(R.id.timeTxt);
-        titleTxt=findViewById(R.id.titleTxt);
-        descriptionTxt = findViewById(R.id.descriptionTxt);
-        picBook = findViewById(R.id.bookPic);
-        authorTxt = findViewById(R.id.AuthorTxt);
-        ratingTxt = findViewById(R.id.ratingTxt);
-        readBookBtn = findViewById(R.id.readbook_btn);
-    }
-
-    private void getData() {
-        Retrofit retrofit = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create()).build();
-        SearchBookApi bookApi = retrofit.create(SearchBookApi.class);
-        Call<Rate> callRate = bookApi.getRate(object.getDescription().substring(7));
-        callRate.enqueue(new Callback<Rate>() {
-            @Override
-            public void onResponse(Call<Rate> call, Response<Rate> response) {
-                if (response.isSuccessful()) {
-                    Rate rate = response.body();
-                    ratingTxt.setText((rate.getSummary().getAverage() + " ").substring(0,3));
-                } else {
-                    // Xử lý lỗi ở đây
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Rate> call, Throwable t) {
-                ratingTxt.setText(0);
             }
         });
     }

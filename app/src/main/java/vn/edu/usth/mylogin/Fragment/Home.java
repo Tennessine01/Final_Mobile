@@ -29,7 +29,7 @@ import vn.edu.usth.mylogin.SubjectBook.SubjectApi;
 
 public class Home extends Fragment {
     private RecyclerView.Adapter adapterBookList;
-    private String[] subjects = {"painting", "juvenile_literature", "dance"};
+    private String[] subjects = {"painting", "juvenile_literature", "physics"};
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -37,7 +37,6 @@ public class Home extends Fragment {
         RecyclerView[] rc = {view.findViewById(R.id.HomeView1),view.findViewById(R.id.HomeView2),view.findViewById(R.id.HomeView3)};
         for (int i = 0; i < subjects.length; i++) {
             initRecyclerview(subjects[i], rc[i]);
-
         }
         return view;
     }
@@ -48,29 +47,19 @@ public class Home extends Fragment {
     }
 
     private void initRecyclerview(String subject, RecyclerView rc) {
-        //tạo danh sách rỗng để chứa các đối tượng bookdomain
         ArrayList<BookDomain> items = new ArrayList<>();
 
-        //thiết lập recycler view để hiển thị danh sách theo chiều ngang
         rc.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
 
         String BASE_URL = "https://openlibrary.org";
-
-        //retrofit là thư viên dùng để tương tác với api
-        // đối tượng retrofit được tạo ra vưới địa chỉ url và dùng gson chuyển json thành object java
         Retrofit retrofit = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create()).build();
 
         SubjectApi subjectApi = retrofit.create(SubjectApi.class);
         int limit = 10;
-
-        //mở một object call để gọi API có limit là lấy 10 api trong 1 lần
-        Call<Subject> call = subjectApi.getLoveSubjects(subject, limit);
-
-        //khi có api dựa theo subject ở trên thì xử lí api bất đồng bộ ở dưới đây
+        Call<Subject> call = subjectApi.getSubjects(subject, limit);
         call.enqueue(new Callback<Subject>() {
             @Override
             public void onResponse(Call<Subject> call, Response<Subject> response) {
-                //nếu gọi API thành công
                 if (response.isSuccessful()) {
                     Subject subject = response.body();
                     List<String> listTitle = new ArrayList<String>();
@@ -99,6 +88,7 @@ public class Home extends Fragment {
                         adapterBookList.notifyItemInserted(items.size() - 1);
                     }
                 } else {
+                    // Xử lý lỗi ở đây
                 }
             }
 

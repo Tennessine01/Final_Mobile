@@ -22,11 +22,13 @@
 
                 <ImageView
                     android:id="@+id/bookPic"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="365dp"
                     android:scaleType="centerCrop"
-                    app:layout_constraintBottom_toTopOf="@id/linearLayout"
-                    app:layout_constraintHorizontal_bias="0.496" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.496"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
                 <LinearLayout
                     android:id="@+id/linearLayout"
                     android:layout_width="match_parent"

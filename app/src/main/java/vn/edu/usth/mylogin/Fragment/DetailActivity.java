@@ -1,7 +1,7 @@
 package vn.edu.usth.mylogin.Fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -66,8 +66,11 @@ public class DetailActivity extends AppCompatActivity {
 
         BookApi bookApi = retrofit.create(BookApi.class);
         Call<Book> call = bookApi.getBookObject(object.getDescription().substring(7));
+
         titleTxt.setText(object.getTitle());
-        authorTxt.setText(object.getAuthor() + " " );
+        authorTxt.setText(object.getAuthor());
+
+
         addToLibraryBtn.setText("Add to library");
         addToLibraryBtn.setOnClickListener(v -> {
             managementMyLibrary.insertBook(object);
@@ -83,11 +86,16 @@ public class DetailActivity extends AppCompatActivity {
         });
 
         call.enqueue(new Callback<Book>() {
+
             @Override
             public void onResponse(Call<Book> call, Response<Book> response) {
                 if (response.isSuccessful()) {
                     Book book = response.body();
+
+                    object.setDescription(book.getDescription());
                     descriptionTxt.setText(book.getDescription());
+
+                    Log.d("aaaaaaaaaaaaaaa", "onResponse: " + book.getDescription());
                     timeTxt.setText(book.getCreated().getValue().substring(0,4));
                 } else {
                     // Xử lý lỗi ở đây
@@ -126,7 +134,7 @@ public class DetailActivity extends AppCompatActivity {
         timeTxt = findViewById(R.id.timeTxt);
         titleTxt=findViewById(R.id.titleTxt);
         descriptionTxt = findViewById(R.id.descriptionTxt);
-        picBook = findViewById(R.id.bookPic);
+        picBook = findViewById(R.id.bookPic1);
         authorTxt = findViewById(R.id.AuthorTxt);
         ratingTxt = findViewById(R.id.ratingTxt);
         readBookBtn = findViewById(R.id.readbook_btn);

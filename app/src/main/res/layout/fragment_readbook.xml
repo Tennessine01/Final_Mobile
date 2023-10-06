@@ -8,6 +8,6 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="con cac">
+        android:text="This book now can't be read">
     </TextView>
 </androidx.constraintlayout.widget.ConstraintLayout>

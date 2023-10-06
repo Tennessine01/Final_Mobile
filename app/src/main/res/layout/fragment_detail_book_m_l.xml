@@ -18,7 +18,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <ImageView
-                    android:id="@+id/bookPic"
+                    android:id="@+id/bookPic2"
                     android:layout_width="wrap_content"
                     android:layout_height="365dp"
                     android:scaleType="centerCrop"
@@ -35,7 +35,7 @@
                     android:orientation="horizontal"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/bookPic">
+                    app:layout_constraintTop_toBottomOf="@+id/bookPic2">
 
                     <TextView
                         android:id="@+id/titleTxt"
@@ -97,7 +97,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="8dp"
-                            android:text="           "
+                            android:text="        a      "
                             android:textColor="@color/black"
                             app:layout_constraintEnd_toEndOf="@+id/time_text"
                             app:layout_constraintStart_toStartOf="@+id/clock"
@@ -145,7 +145,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="8dp"
-                            android:text=""
+                            android:text="     b     "
                             android:textColor="@color/black"
                             app:layout_constraintEnd_toEndOf="@+id/author_txt"
                             app:layout_constraintStart_toStartOf="@+id/person_icon"
@@ -189,7 +189,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="8dp"
-                            android:text="            "
+                            android:text="       c       "
                             android:textColor="@color/black"
                             app:layout_constraintStart_toStartOf="@+id/star"
                             app:layout_constraintTop_toBottomOf="@+id/star" />
@@ -197,7 +197,7 @@
                 </LinearLayout>
 
                 <TextView
-                    android:id="@+id/descriptionTxt"
+                    android:id="@+id/descriptionTxt2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="24dp"
@@ -208,11 +208,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="650dp"
-                    android:orientation="vertical"/>
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/readbook_btn"
@@ -225,6 +220,7 @@
                     android:text="Read Book"
                     android:textColor="@color/white"
                     android:textSize="20sp"
+                    app:layout_constraintTop_toBottomOf="@id/descriptionTxt2"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />

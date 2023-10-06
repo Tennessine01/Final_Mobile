@@ -9,9 +9,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 
+import retrofit2.Call;
 import vn.edu.usth.mylogin.Domain.BookDomain;
 import vn.edu.usth.mylogin.Helper.ManagementMyLibrary;
 import vn.edu.usth.mylogin.R;
+import vn.edu.usth.mylogin.SubjectBook.Book;
+import vn.edu.usth.mylogin.SubjectBook.BookApi;
 
 public class DetailActivityBook extends AppCompatActivity {
     //private Button addToCartBtn;
@@ -36,8 +39,11 @@ public class DetailActivityBook extends AppCompatActivity {
     private void getBundle() {
         object = (BookDomain) getIntent().getSerializableExtra("object");
 
-        int drawableResourceId = this.getResources().getIdentifier(object.getPicUrl(), "drawable", this.getPackageName());
-        Glide.with(this).load(drawableResourceId).into(picBook);
+        int drawableResourceId = this.getResources().getIdentifier("book5", "drawable", this.getPackageName());
+        Glide.with(this)
+                .load(object.getPicUrl()).error(drawableResourceId)
+                .into(picBook);
+
 
         titleTxt.setText(object.getTitle());
         //feeTxt.setText("$" + object.getPrice());
@@ -51,8 +57,8 @@ public class DetailActivityBook extends AppCompatActivity {
     private void initView() {
         timeTxt = findViewById(R.id.timeTxt);
         titleTxt=findViewById(R.id.titleTxt);
-        descriptionTxt = findViewById(R.id.descriptionTxt);
-        picBook = findViewById(R.id.bookPic);
+        descriptionTxt = findViewById(R.id.descriptionTxt2);
+        picBook = findViewById(R.id.bookPic2);
         authorTxt = findViewById(R.id.AuthorTxt);
         ratingTxt = findViewById(R.id.ratingTxt);
     }

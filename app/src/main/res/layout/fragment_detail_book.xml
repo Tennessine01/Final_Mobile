@@ -13,7 +13,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,12 +21,14 @@
                 android:layout_height="match_parent">
 
                 <ImageView
-                    android:id="@+id/bookPic"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/bookPic1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="365dp"
                     android:scaleType="centerCrop"
-                    app:layout_constraintBottom_toTopOf="@id/linearLayout"
-                    app:layout_constraintHorizontal_bias="0.496" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.496"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
 
                 <LinearLayout
                     android:id="@+id/linearLayout"
@@ -36,7 +38,7 @@
                     android:orientation="horizontal"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/bookPic">
+                    app:layout_constraintTop_toBottomOf="@id/bookPic1">
 
                     <TextView
                         android:id="@+id/titleTxt"
@@ -61,7 +63,7 @@
                     android:orientation="horizontal"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+                    app:layout_constraintTop_toBottomOf="@id/linearLayout">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="0dp"
@@ -86,11 +88,11 @@
                             android:text="@string/Since"
                             android:textColor="@color/black"
                             android:textStyle="bold"
-                            app:layout_constraintBottom_toBottomOf="@+id/clock"
+                            app:layout_constraintBottom_toBottomOf="@id/clock"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.0"
-                            app:layout_constraintStart_toEndOf="@+id/clock"
-                            app:layout_constraintTop_toTopOf="@+id/clock"
+                            app:layout_constraintStart_toEndOf="@id/clock"
+                            app:layout_constraintTop_toTopOf="@id/clock"
                             app:layout_constraintVertical_bias="0.0" />
 
                         <TextView
@@ -100,9 +102,9 @@
                             android:layout_margin="8dp"
                             android:text="           "
                             android:textColor="@color/black"
-                            app:layout_constraintEnd_toEndOf="@+id/time_text"
-                            app:layout_constraintStart_toStartOf="@+id/clock"
-                            app:layout_constraintTop_toBottomOf="@+id/clock" />
+                            app:layout_constraintEnd_toEndOf="@id/time_text"
+                            app:layout_constraintStart_toStartOf="@id/clock"
+                            app:layout_constraintTop_toBottomOf="@id/clock" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <View
@@ -134,11 +136,11 @@
                             android:text="@string/Author"
                             android:textColor="@color/black"
                             android:textStyle="bold"
-                            app:layout_constraintBottom_toBottomOf="@+id/person_icon"
+                            app:layout_constraintBottom_toBottomOf="@id/person_icon"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.0"
-                            app:layout_constraintStart_toEndOf="@+id/person_icon"
-                            app:layout_constraintTop_toTopOf="@+id/person_icon"
+                            app:layout_constraintStart_toEndOf="@id/person_icon"
+                            app:layout_constraintTop_toTopOf="@id/person_icon"
                             app:layout_constraintVertical_bias="0.0" />
 
                         <TextView
@@ -148,9 +150,9 @@
                             android:layout_margin="8dp"
                             android:text=""
                             android:textColor="@color/black"
-                            app:layout_constraintEnd_toEndOf="@+id/author_txt"
-                            app:layout_constraintStart_toStartOf="@+id/person_icon"
-                            app:layout_constraintTop_toBottomOf="@+id/person_icon" />
+                            app:layout_constraintEnd_toEndOf="@id/author_txt"
+                            app:layout_constraintStart_toStartOf="@id/person_icon"
+                            app:layout_constraintTop_toBottomOf="@id/person_icon" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <View
@@ -181,9 +183,9 @@
                             android:text="@string/Rating"
                             android:textColor="@color/black"
                             android:textStyle="bold"
-                            app:layout_constraintBottom_toBottomOf="@+id/star"
-                            app:layout_constraintStart_toEndOf="@+id/star"
-                            app:layout_constraintTop_toTopOf="@+id/star"
+                            app:layout_constraintBottom_toBottomOf="@id/star"
+                            app:layout_constraintStart_toEndOf="@id/star"
+                            app:layout_constraintTop_toTopOf="@id/star"
                             app:layout_constraintVertical_bias="0.0" />
                         <TextView
                             android:id="@+id/ratingTxt"
@@ -192,8 +194,8 @@
                             android:layout_margin="8dp"
                             android:text="            "
                             android:textColor="@color/black"
-                            app:layout_constraintStart_toStartOf="@+id/star"
-                            app:layout_constraintTop_toBottomOf="@+id/star" />
+                            app:layout_constraintStart_toStartOf="@id/star"
+                            app:layout_constraintTop_toBottomOf="@id/star" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </LinearLayout>
                 <TextView
@@ -206,7 +208,7 @@
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+                    app:layout_constraintTop_toBottomOf="@id/linearLayout2" />
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/addToLibraryBtn"
                     style="@android:style/Widget.Button"
@@ -220,7 +222,7 @@
                     app:layout_constraintBottom_toTopOf="@id/readbook_btn"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/descriptionTxt" />
+                    app:layout_constraintTop_toBottomOf="@id/descriptionTxt" />
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/readbook_btn"
                     style="@android:style/Widget.Button"

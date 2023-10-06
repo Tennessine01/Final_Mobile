@@ -23,7 +23,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 import vn.edu.usth.mylogin.Fragment.Home;
 import vn.edu.usth.mylogin.Fragment.MyLibrary;
-import vn.edu.usth.mylogin.Fragment.Search;
+import vn.edu.usth.mylogin.Fragment.SearchFragment;
 import vn.edu.usth.mylogin.R;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     MyLibrary myLibrary = new MyLibrary();
     Home home = new Home();
-    Search search = new Search();
+    SearchFragment searchFragment = new SearchFragment();
     BottomNavigationView navigationView;
     FirebaseAuth auth;
     Button button;
@@ -75,7 +75,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                     if (item.getItemId() == R.id.home_view) {
-
                         FragmentTransaction replaceFragment= getSupportFragmentManager().beginTransaction();
                         replaceFragment.replace(R.id.container, home).commit();
 
@@ -85,7 +84,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     } else
                     {
                         FragmentTransaction replaceFragment= getSupportFragmentManager().beginTransaction();
-                        replaceFragment.replace(R.id.container, search).commit();
+                        replaceFragment.replace(R.id.container, searchFragment).commit();
                     }
                     return true;
                 }

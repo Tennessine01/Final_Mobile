@@ -42,7 +42,7 @@ public class ManagementMyLibrary {
         return tinyDB.getListObject("Library");
     }
 
-    public void minusNumberFood(ArrayList<BookDomain> listbook, int position, ChangeNumberItemsListener changeNumberItemsListener) {
+    public void minusNumberBook(ArrayList<BookDomain> listbook, int position, ChangeNumberItemsListener changeNumberItemsListener) {
         listbook.remove(position);
         tinyDB.putListObject("Library", listbook);
         changeNumberItemsListener.changed();

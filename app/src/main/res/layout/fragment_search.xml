@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Fragment.Search"
+    tools:context=".Fragment.SearchFragment"
     android:background="@color/white">
 
 
@@ -49,7 +49,7 @@
                 android:orientation="horizontal">
 
                 <EditText
-                    android:id="@+id/editTextTextPersonName"
+                    android:id="@+id/editTextSearch"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_margin="3dp"
@@ -84,441 +84,443 @@
             </LinearLayout>
 
 
-
-
-
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:layout_marginStart="16dp"-->
-<!--                android:layout_marginTop="8dp"-->
-<!--                android:layout_marginEnd="16dp"-->
-<!--                android:orientation="vertical"-->
-<!--                android:id="@+id/discover_tag">-->
-<!--                <TextView-->
-<!--                    android:layout_width="198dp"-->
-<!--                    android:layout_height="35dp"-->
-<!--                    android:layout_marginLeft="10dp"-->
-<!--                    android:layout_marginTop="10dp"-->
-<!--                    android:layout_weight="1"-->
-<!--                    android:text="@string/Discovery"-->
-<!--                    android:textColor="@color/black"-->
-<!--                    android:textSize="20dp"-->
-<!--                    android:textStyle="normal|bold" />-->
-
-<!--                <LinearLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:orientation="horizontal">-->
-
-
-<!--                    <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--                        android:layout_width="0dp"-->
-<!--                        android:layout_height="match_parent"-->
-<!--                        android:layout_margin="8dp"-->
-<!--                        android:layout_weight="0.25"-->
-<!--                        android:background="@drawable/category_background">-->
-
-<!--                        &lt;!&ndash; ImageView on the Left &ndash;&gt;-->
-<!--                        <ImageView-->
-<!--                            android:id="@+id/HorrorTag"-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_marginStart="10dp"-->
-<!--                            android:layout_marginTop="10dp"-->
-<!--                            android:layout_marginBottom="10dp"-->
-<!--                            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                            app:layout_constraintStart_toStartOf="parent"-->
-<!--                            app:layout_constraintTop_toTopOf="parent"-->
-<!--                            app:layout_constraintVertical_bias="0.5"-->
-<!--                            app:srcCompat="@drawable/ghost" />-->
-
-<!--                        &lt;!&ndash; TextView on the Right of ImageView &ndash;&gt;-->
-<!--                        <TextView-->
-<!--                            android:id="@+id/HorrorName"-->
-<!--                            android:layout_width="0dp"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_marginStart="10dp"-->
-<!--                            android:text="@string/Horror"-->
-<!--                            android:textColor="@color/black"-->
-<!--                            app:layout_constraintBottom_toBottomOf="@id/HorrorTag"-->
-<!--                            app:layout_constraintEnd_toEndOf="parent"-->
-<!--                            app:layout_constraintStart_toEndOf="@id/HorrorTag"-->
-<!--                            app:layout_constraintTop_toTopOf="@id/HorrorTag" />-->
-
-<!--                    </androidx.constraintlayout.widget.ConstraintLayout>-->
-
-
-<!--                    <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--                        android:layout_width="0dp"-->
-<!--                        android:layout_height="match_parent"-->
-<!--                        android:layout_margin="8dp"-->
-<!--                        android:layout_weight="0.25"-->
-<!--                        android:background="@drawable/category_background">-->
-
-<!--                        &lt;!&ndash; ImageView on the Left &ndash;&gt;-->
-<!--                        <ImageView-->
-<!--                            android:id="@+id/History"-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_marginStart="10dp"-->
-<!--                            android:layout_marginTop="10dp"-->
-<!--                            android:layout_marginBottom="10dp"-->
-<!--                            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                            app:layout_constraintStart_toStartOf="parent"-->
-<!--                            app:layout_constraintTop_toTopOf="parent"-->
-<!--                            app:layout_constraintVertical_bias="0.5"-->
-<!--                            app:srcCompat="@drawable/history" />-->
-
-<!--                        &lt;!&ndash; TextView on the Right of ImageView &ndash;&gt;-->
-<!--                        <TextView-->
-<!--                            android:id="@+id/History_name"-->
-<!--                            android:layout_width="0dp"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_marginStart="10dp"-->
-<!--                            android:text="@string/History"-->
-<!--                            android:textColor="@color/black"-->
-<!--                            app:layout_constraintBottom_toBottomOf="@id/History"-->
-<!--                            app:layout_constraintEnd_toEndOf="parent"-->
-<!--                            app:layout_constraintStart_toEndOf="@id/History"-->
-<!--                            app:layout_constraintTop_toTopOf="@id/History" />-->
-
-<!--                    </androidx.constraintlayout.widget.ConstraintLayout>-->
-
-<!--                </LinearLayout>-->
-
-<!--                <LinearLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:orientation="horizontal">-->
-
-
-<!--                    <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--                        android:layout_width="0dp"-->
-<!--                        android:layout_height="match_parent"-->
-<!--                        android:layout_margin="8dp"-->
-<!--                        android:layout_weight="0.25"-->
-<!--                        android:background="@drawable/category_background">-->
-
-<!--                        &lt;!&ndash; ImageView on the Left &ndash;&gt;-->
-<!--                        <ImageView-->
-<!--                            android:id="@+id/Art"-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_marginStart="10dp"-->
-<!--                            android:layout_marginTop="10dp"-->
-<!--                            android:layout_marginBottom="10dp"-->
-<!--                            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                            app:layout_constraintStart_toStartOf="parent"-->
-<!--                            app:layout_constraintTop_toTopOf="parent"-->
-<!--                            app:layout_constraintVertical_bias="0.5"-->
-<!--                            app:srcCompat="@drawable/arts_music" />-->
-
-<!--                        &lt;!&ndash; TextView on the Right of ImageView &ndash;&gt;-->
-<!--                        <TextView-->
-<!--                            android:id="@+id/Art_name"-->
-<!--                            android:layout_width="0dp"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_marginStart="10dp"-->
-<!--                            android:text="@string/Art"-->
-<!--                            android:textColor="@color/black"-->
-<!--                            app:layout_constraintBottom_toBottomOf="@id/Art"-->
-<!--                            app:layout_constraintEnd_toEndOf="parent"-->
-<!--                            app:layout_constraintStart_toEndOf="@id/Art"-->
-<!--                            app:layout_constraintTop_toTopOf="@id/Art" />-->
-
-<!--                    </androidx.constraintlayout.widget.ConstraintLayout>-->
-
-
-<!--                    <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--                        android:layout_width="0dp"-->
-<!--                        android:layout_height="match_parent"-->
-<!--                        android:layout_margin="8dp"-->
-<!--                        android:layout_weight="0.25"-->
-<!--                        android:background="@drawable/category_background">-->
-
-<!--                        &lt;!&ndash; ImageView on the Left &ndash;&gt;-->
-<!--                        <ImageView-->
-<!--                            android:id="@+id/Life_story"-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_marginStart="10dp"-->
-<!--                            android:layout_marginTop="10dp"-->
-<!--                            android:layout_marginBottom="10dp"-->
-<!--                            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                            app:layout_constraintStart_toStartOf="parent"-->
-<!--                            app:layout_constraintTop_toTopOf="parent"-->
-<!--                            app:layout_constraintVertical_bias="0.5"-->
-<!--                            app:srcCompat="@drawable/biographies" />-->
-
-<!--                        &lt;!&ndash; TextView on the Right of ImageView &ndash;&gt;-->
-<!--                        <TextView-->
-<!--                            android:id="@+id/Life_name"-->
-<!--                            android:layout_width="0dp"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_marginStart="10dp"-->
-<!--                            android:text="@string/Story"-->
-<!--                            android:textColor="@color/black"-->
-<!--                            app:layout_constraintBottom_toBottomOf="@id/Life_story"-->
-<!--                            app:layout_constraintEnd_toEndOf="parent"-->
-<!--                            app:layout_constraintStart_toEndOf="@id/Life_story"-->
-<!--                            app:layout_constraintTop_toTopOf="@id/Life_story" />-->
-
-<!--                    </androidx.constraintlayout.widget.ConstraintLayout>-->
-
-<!--                </LinearLayout>-->
-
-<!--                <LinearLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:orientation="horizontal">-->
-
-
-<!--                    <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--                        android:layout_width="0dp"-->
-<!--                        android:layout_height="match_parent"-->
-<!--                        android:layout_margin="8dp"-->
-<!--                        android:layout_weight="0.25"-->
-<!--                        android:background="@drawable/category_background">-->
-
-<!--                        &lt;!&ndash; ImageView on the Left &ndash;&gt;-->
-<!--                        <ImageView-->
-<!--                            android:id="@+id/Business"-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_marginStart="10dp"-->
-<!--                            android:layout_marginTop="10dp"-->
-<!--                            android:layout_marginBottom="10dp"-->
-<!--                            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                            app:layout_constraintStart_toStartOf="parent"-->
-<!--                            app:layout_constraintTop_toTopOf="parent"-->
-<!--                            app:layout_constraintVertical_bias="0.5"-->
-<!--                            app:srcCompat="@drawable/business" />-->
-
-<!--                        &lt;!&ndash; TextView on the Right of ImageView &ndash;&gt;-->
-<!--                        <TextView-->
-<!--                            android:id="@+id/Business_name"-->
-<!--                            android:layout_width="0dp"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_marginStart="10dp"-->
-<!--                            android:text="@string/Business"-->
-<!--                            android:textColor="@color/black"-->
-<!--                            app:layout_constraintBottom_toBottomOf="@id/Business"-->
-<!--                            app:layout_constraintEnd_toEndOf="parent"-->
-<!--                            app:layout_constraintStart_toEndOf="@id/Business"-->
-<!--                            app:layout_constraintTop_toTopOf="@id/Business" />-->
-
-<!--                    </androidx.constraintlayout.widget.ConstraintLayout>-->
-
-
-<!--                    <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--                        android:layout_width="0dp"-->
-<!--                        android:layout_height="match_parent"-->
-<!--                        android:layout_margin="8dp"-->
-<!--                        android:layout_weight="0.25"-->
-<!--                        android:background="@drawable/category_background">-->
-
-<!--                        &lt;!&ndash; ImageView on the Left &ndash;&gt;-->
-<!--                        <ImageView-->
-<!--                            android:id="@+id/Comedy_tag"-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_marginStart="10dp"-->
-<!--                            android:layout_marginTop="10dp"-->
-<!--                            android:layout_marginBottom="10dp"-->
-<!--                            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                            app:layout_constraintStart_toStartOf="parent"-->
-<!--                            app:layout_constraintTop_toTopOf="parent"-->
-<!--                            app:layout_constraintVertical_bias="0.5"-->
-<!--                            app:srcCompat="@drawable/comic" />-->
-
-<!--                        &lt;!&ndash; TextView on the Right of ImageView &ndash;&gt;-->
-<!--                        <TextView-->
-<!--                            android:id="@+id/Comedy_name"-->
-<!--                            android:layout_width="0dp"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_marginStart="10dp"-->
-<!--                            android:text="@string/Comedy"-->
-<!--                            android:textColor="@color/black"-->
-<!--                            app:layout_constraintBottom_toBottomOf="@id/Comedy_tag"-->
-<!--                            app:layout_constraintEnd_toEndOf="parent"-->
-<!--                            app:layout_constraintStart_toEndOf="@id/Comedy_tag"-->
-<!--                            app:layout_constraintTop_toTopOf="@id/Comedy_tag" />-->
-
-<!--                    </androidx.constraintlayout.widget.ConstraintLayout>-->
-
-<!--                </LinearLayout>-->
-
-<!--                <LinearLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:orientation="horizontal">-->
-
-
-<!--                    <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--                        android:layout_width="0dp"-->
-<!--                        android:layout_height="match_parent"-->
-<!--                        android:layout_margin="8dp"-->
-<!--                        android:layout_weight="0.25"-->
-<!--                        android:background="@drawable/category_background">-->
-
-<!--                        &lt;!&ndash; ImageView on the Left &ndash;&gt;-->
-<!--                        <ImageView-->
-<!--                            android:id="@+id/Cooking_Tag"-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_marginStart="10dp"-->
-<!--                            android:layout_marginTop="10dp"-->
-<!--                            android:layout_marginBottom="10dp"-->
-<!--                            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                            app:layout_constraintStart_toStartOf="parent"-->
-<!--                            app:layout_constraintTop_toTopOf="parent"-->
-<!--                            app:layout_constraintVertical_bias="0.5"-->
-<!--                            app:srcCompat="@drawable/cooking" />-->
-
-<!--                        &lt;!&ndash; TextView on the Right of ImageView &ndash;&gt;-->
-<!--                        <TextView-->
-<!--                            android:id="@+id/Cooking_name"-->
-<!--                            android:layout_width="0dp"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_marginStart="10dp"-->
-<!--                            android:text="@string/Cooking"-->
-<!--                            android:textColor="@color/black"-->
-<!--                            app:layout_constraintBottom_toBottomOf="@id/Cooking_Tag"-->
-<!--                            app:layout_constraintEnd_toEndOf="parent"-->
-<!--                            app:layout_constraintStart_toEndOf="@id/Cooking_Tag"-->
-<!--                            app:layout_constraintTop_toTopOf="@id/Cooking_Tag" />-->
-
-<!--                    </androidx.constraintlayout.widget.ConstraintLayout>-->
-
-
-<!--                    <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--                        android:layout_width="0dp"-->
-<!--                        android:layout_height="match_parent"-->
-<!--                        android:layout_margin="8dp"-->
-<!--                        android:layout_weight="0.25"-->
-<!--                        android:background="@drawable/category_background">-->
-
-<!--                        &lt;!&ndash; ImageView on the Left &ndash;&gt;-->
-<!--                        <ImageView-->
-<!--                            android:id="@+id/Tech"-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_marginStart="10dp"-->
-<!--                            android:layout_marginTop="10dp"-->
-<!--                            android:layout_marginBottom="10dp"-->
-<!--                            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                            app:layout_constraintStart_toStartOf="parent"-->
-<!--                            app:layout_constraintTop_toTopOf="parent"-->
-<!--                            app:layout_constraintVertical_bias="0.5"-->
-<!--                            app:srcCompat="@drawable/computers_tech" />-->
-
-<!--                        &lt;!&ndash; TextView on the Right of ImageView &ndash;&gt;-->
-<!--                        <TextView-->
-<!--                            android:id="@+id/Tech_name"-->
-<!--                            android:layout_width="0dp"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_marginStart="10dp"-->
-<!--                            android:text="@string/Tech"-->
-<!--                            android:textColor="@color/black"-->
-<!--                            app:layout_constraintBottom_toBottomOf="@id/Tech"-->
-<!--                            app:layout_constraintEnd_toEndOf="parent"-->
-<!--                            app:layout_constraintStart_toEndOf="@id/Tech"-->
-<!--                            app:layout_constraintTop_toTopOf="@id/Tech" />-->
-
-<!--                    </androidx.constraintlayout.widget.ConstraintLayout>-->
-
-<!--                </LinearLayout>-->
-
-<!--                <LinearLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:orientation="horizontal">-->
-
-
-<!--                    <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--                        android:layout_width="0dp"-->
-<!--                        android:layout_height="match_parent"-->
-<!--                        android:layout_margin="8dp"-->
-<!--                        android:layout_weight="0.25"-->
-<!--                        android:background="@drawable/category_background">-->
-
-<!--                        &lt;!&ndash; ImageView on the Left &ndash;&gt;-->
-<!--                        <ImageView-->
-<!--                            android:id="@+id/Edu"-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_marginStart="10dp"-->
-<!--                            android:layout_marginTop="10dp"-->
-<!--                            android:layout_marginBottom="10dp"-->
-<!--                            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                            app:layout_constraintStart_toStartOf="parent"-->
-<!--                            app:layout_constraintTop_toTopOf="parent"-->
-<!--                            app:layout_constraintVertical_bias="0.5"-->
-<!--                            app:srcCompat="@drawable/education" />-->
-
-<!--                        &lt;!&ndash; TextView on the Right of ImageView &ndash;&gt;-->
-<!--                        <TextView-->
-<!--                            android:id="@+id/Edu_name"-->
-<!--                            android:layout_width="0dp"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_marginStart="10dp"-->
-<!--                            android:text="@string/Education"-->
-<!--                            android:textColor="@color/black"-->
-<!--                            app:layout_constraintBottom_toBottomOf="@id/Edu"-->
-<!--                            app:layout_constraintEnd_toEndOf="parent"-->
-<!--                            app:layout_constraintStart_toEndOf="@id/Edu"-->
-<!--                            app:layout_constraintTop_toTopOf="@id/Edu" />-->
-
-<!--                    </androidx.constraintlayout.widget.ConstraintLayout>-->
-
-
-<!--                    <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--                        android:layout_width="0dp"-->
-<!--                        android:layout_height="match_parent"-->
-<!--                        android:layout_margin="8dp"-->
-<!--                        android:layout_weight="0.25"-->
-<!--                        android:background="@drawable/category_background">-->
-
-<!--                        &lt;!&ndash; ImageView on the Left &ndash;&gt;-->
-<!--                        <ImageView-->
-<!--                            android:id="@+id/Romance_Tag"-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_marginStart="10dp"-->
-<!--                            android:layout_marginTop="10dp"-->
-<!--                            android:layout_marginBottom="10dp"-->
-<!--                            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                            app:layout_constraintStart_toStartOf="parent"-->
-<!--                            app:layout_constraintTop_toTopOf="parent"-->
-<!--                            app:layout_constraintVertical_bias="0.5"-->
-<!--                            app:srcCompat="@drawable/romance" />-->
-
-<!--                        &lt;!&ndash; TextView on the Right of ImageView &ndash;&gt;-->
-<!--                        <TextView-->
-<!--                            android:id="@+id/Romance_Name"-->
-<!--                            android:layout_width="0dp"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_marginStart="10dp"-->
-<!--                            android:text="@string/Romance"-->
-<!--                            android:textColor="@color/black"-->
-<!--                            app:layout_constraintBottom_toBottomOf="@+id/Romance_Tag"-->
-<!--                            app:layout_constraintEnd_toEndOf="parent"-->
-<!--                            app:layout_constraintStart_toEndOf="@+id/Romance_Tag"-->
-<!--                            app:layout_constraintTop_toTopOf="@+id/Romance_Tag" />-->
-
-<!--                    </androidx.constraintlayout.widget.ConstraintLayout>-->
-
-<!--                </LinearLayout>-->
-
-
-<!--            </LinearLayout>-->
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/search_list_view"
+            <TextView
+                android:layout_width="198dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:text="@string/Discovery"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:textStyle="normal|bold" />
+
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="24dp" />
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="8dp"
+                        android:layout_weight="0.25"
+                        android:background="@drawable/category_background">
+
+                        <!-- ImageView on the Left -->
+                        <ImageView
+                            android:id="@+id/art"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.5"
+                            app:srcCompat="@drawable/art" />
+
+                        <!-- TextView on the Right of ImageView -->
+                        <TextView
+                            android:id="@+id/HorrorName"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:text="@string/Art"
+                            android:textColor="@color/black"
+                            app:layout_constraintBottom_toBottomOf="@+id/art"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/art"
+                            app:layout_constraintTop_toTopOf="@+id/art" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="8dp"
+                        android:layout_weight="0.25"
+                        android:background="@drawable/category_background">
+
+                        <!-- ImageView on the Left -->
+                        <ImageView
+                            android:id="@+id/history"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.5"
+                            app:srcCompat="@drawable/history" />
+
+                        <!-- TextView on the Right of ImageView -->
+                        <TextView
+                            android:id="@+id/History_name"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:text="@string/History"
+                            android:textColor="@color/black"
+                            app:layout_constraintBottom_toBottomOf="@+id/history"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/history"
+                            app:layout_constraintTop_toTopOf="@+id/history" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="8dp"
+                        android:layout_weight="0.25"
+                        android:background="@drawable/category_background">
+
+                        <!-- ImageView on the Left -->
+                        <ImageView
+                            android:id="@+id/children"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.5"
+                            app:srcCompat="@drawable/children" />
+
+                        <!-- TextView on the Right of ImageView -->
+                        <TextView
+                            android:id="@+id/Art_name"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:text="@string/Children"
+                            android:textColor="@color/black"
+                            app:layout_constraintBottom_toBottomOf="@id/children"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/children"
+                            app:layout_constraintTop_toTopOf="@id/children" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="8dp"
+                        android:layout_weight="0.25"
+                        android:background="@drawable/category_background">
+
+                        <!-- ImageView on the Left -->
+                        <ImageView
+                            android:id="@+id/biographies"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.5"
+                            app:srcCompat="@drawable/biographies" />
+
+                        <!-- TextView on the Right of ImageView -->
+                        <TextView
+                            android:id="@+id/Life_name"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:text="@string/Biographies"
+                            android:textColor="@color/black"
+                            app:layout_constraintBottom_toBottomOf="@+id/biographies"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/biographies"
+                            app:layout_constraintTop_toTopOf="@+id/biographies" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="8dp"
+                        android:layout_weight="0.25"
+                        android:background="@drawable/category_background">
+
+                        <!-- ImageView on the Left -->
+                        <ImageView
+                            android:id="@+id/fantasy"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.5"
+                            app:srcCompat="@drawable/fantasy" />
+
+                        <!-- TextView on the Right of ImageView -->
+                        <TextView
+                            android:id="@+id/Business_name"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:text="@string/Fantasy"
+                            android:textColor="@color/black"
+                            app:layout_constraintBottom_toBottomOf="@+id/fantasy"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/fantasy"
+                            app:layout_constraintTop_toTopOf="@+id/fantasy" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="8dp"
+                        android:layout_weight="0.25"
+                        android:background="@drawable/category_background">
+
+                        <!-- ImageView on the Left -->
+                        <ImageView
+                            android:id="@+id/mystery"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.5"
+                            app:srcCompat="@drawable/mystery_and_detective_stories" />
+
+                        <!-- TextView on the Right of ImageView -->
+                        <TextView
+                            android:id="@+id/Comedy_name"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:text="@string/Mystery"
+                            android:textColor="@color/black"
+                            app:layout_constraintBottom_toBottomOf="@+id/mystery"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/mystery"
+                            app:layout_constraintTop_toTopOf="@+id/mystery" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="8dp"
+                        android:layout_weight="0.25"
+                        android:background="@drawable/category_background">
+
+                        <!-- ImageView on the Left -->
+                        <ImageView
+                            android:id="@+id/medicine"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.5"
+                            app:srcCompat="@drawable/medicine" />
+
+                        <!-- TextView on the Right of ImageView -->
+                        <TextView
+                            android:id="@+id/Cooking_name"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:text="@string/Medicine"
+                            android:textColor="@color/black"
+                            app:layout_constraintBottom_toBottomOf="@+id/medicine"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/medicine"
+                            app:layout_constraintTop_toTopOf="@+id/medicine" />
+
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="8dp"
+                        android:layout_weight="0.25"
+                        android:background="@drawable/category_background">
+
+                        <!-- ImageView on the Left -->
+                        <ImageView
+                            android:id="@+id/animals"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.5"
+                            app:srcCompat="@drawable/plays" />
+
+                        <!-- TextView on the Right of ImageView -->
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:text="@string/Animal"
+                            android:textColor="@color/black"
+                            app:layout_constraintBottom_toBottomOf="@+id/animals"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/animals"
+                            app:layout_constraintTop_toTopOf="@+id/animals" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="8dp"
+                        android:layout_weight="0.25"
+                        android:background="@drawable/category_background">
+
+                        <!-- ImageView on the Left -->
+                        <ImageView
+                            android:id="@+id/science"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.5"
+                            app:srcCompat="@drawable/science" />
+
+                        <!-- TextView on the Right of ImageView -->
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:text="@string/Science"
+                            android:textColor="@color/black"
+                            app:layout_constraintBottom_toBottomOf="@+id/science"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/science"
+                            app:layout_constraintTop_toTopOf="@+id/science" />
+
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="8dp"
+                        android:layout_weight="0.25"
+                        android:background="@drawable/category_background">
+
+                        <!-- ImageView on the Left -->
+                        <ImageView
+                            android:id="@+id/fiction"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.5"
+                            app:srcCompat="@drawable/science_fiction" />
+
+                        <!-- TextView on the Right of ImageView -->
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:text="@string/Fiction"
+                            android:textColor="@color/black"
+                            app:layout_constraintBottom_toBottomOf="@+id/fiction"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/fiction"
+                            app:layout_constraintTop_toTopOf="@+id/fiction" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:orientation="vertical"/>
+
         </LinearLayout>
     </ScrollView>
 
