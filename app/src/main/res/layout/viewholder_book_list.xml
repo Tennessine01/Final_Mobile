@@ -17,7 +17,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-
         app:srcCompat="@drawable/book2" />
 
     <androidx.constraintlayout.widget.Guideline

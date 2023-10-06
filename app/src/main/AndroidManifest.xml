@@ -22,6 +22,10 @@
         <activity
             android:name=".Helper.Register"
             android:exported="false" />
+
+        <activity android:name=".Fragment.SearchActivity"
+            android:exported="false"/>
+
         <activity android:name=".Fragment.DetailActivity"
             android:exported="false">
         </activity>

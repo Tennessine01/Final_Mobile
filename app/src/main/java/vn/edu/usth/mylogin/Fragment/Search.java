@@ -4,8 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -14,31 +12,46 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-import vn.edu.usth.mylogin.Adapter.BookListAdapter;
-import vn.edu.usth.mylogin.Domain.BookDomain;
-import vn.edu.usth.mylogin.R;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import vn.edu.usth.mylogin.SubjectBook.Author;
-import vn.edu.usth.mylogin.SubjectBook.Subject;
-import vn.edu.usth.mylogin.SubjectBook.SubjectApi;
+import vn.edu.usth.mylogin.Adapter.BookListAdapter;
+import vn.edu.usth.mylogin.Domain.BookDomain;
+import vn.edu.usth.mylogin.R;
+import vn.edu.usth.mylogin.SearchBook.SearchApi;
+import vn.edu.usth.mylogin.SearchBook.Subject;
 
-public class Home extends Fragment {
+public class Search extends Fragment {
+
     private RecyclerView.Adapter adapterBookList;
-    private String[] subjects = {"painting", "juvenile_literature", "dance"};
+    private String inputText = "Love";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
-        RecyclerView[] rc = {view.findViewById(R.id.HomeView1),view.findViewById(R.id.HomeView2),view.findViewById(R.id.HomeView3)};
-        for (int i = 0; i < subjects.length; i++) {
-            initRecyclerview(subjects[i], rc[i]);
 
-        }
+        View view = inflater.inflate(R.layout.fragment_search, container, false);
+
+        RecyclerView rc = view.findViewById(R.id.search_list_view);
+        initRecyclerview(inputText, rc);
+
+
+
+//        // Tìm kiếm EditText và ImageButton theo ID
+//        EditText editText = view.findViewById(R.id.editTextTextPersonName);
+//        ImageButton imageButton = view.findViewById(R.id.searchButton);
+//
+//        // Thiết lập OnClickListener cho ImageButton
+//        imageButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                // Lấy giá trị từ EditText và in ra
+//                inputText = editText.getText().toString();
+//
+//                //Log.d(TAG, "onClick: "+inputText);
+//            }
+//        });
         return view;
     }
 
@@ -52,7 +65,7 @@ public class Home extends Fragment {
         ArrayList<BookDomain> items = new ArrayList<>();
 
         //thiết lập recycler view để hiển thị danh sách theo chiều ngang
-        rc.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
+        rc.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
 
         String BASE_URL = "https://openlibrary.org";
 
@@ -60,13 +73,11 @@ public class Home extends Fragment {
         // đối tượng retrofit được tạo ra vưới địa chỉ url và dùng gson chuyển json thành object java
         Retrofit retrofit = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create()).build();
 
-        SubjectApi subjectApi = retrofit.create(SubjectApi.class);
+        SearchApi searchApi = retrofit.create(SearchApi.class);
         int limit = 10;
 
-        //mở một object call để gọi API có limit là lấy 10 api trong 1 lần
-        Call<Subject> call = subjectApi.getLoveSubjects(subject, limit);
-
-        //khi có api dựa theo subject ở trên thì xử lí api bất đồng bộ ở dưới đây
+        //mở cuộc gọi API có limit là lấy 10 api trong 1 lần
+        Call<Subject> call = searchApi.getSubjects(subject, limit);
         call.enqueue(new Callback<Subject>() {
             @Override
             public void onResponse(Call<Subject> call, Response<Subject> response) {
@@ -78,11 +89,11 @@ public class Home extends Fragment {
                     List<Integer> listCoverId = new ArrayList<Integer>();
                     List<String> listKey = new ArrayList<String>();
                     subject.getWorks().forEach(workItem -> {
-                            listTitle.add(workItem.getTitle());
-                            authors.add(workItem.getAuthors().get(0).getName());
-                            listCoverId.add(workItem.getCover_id());
-                            listKey.add(workItem.getKey());
-                        }
+                                listTitle.add(workItem.getTitle());
+                                authors.add(workItem.getAuthors().get(0).getName());
+                                listCoverId.add(workItem.getCover_id());
+                                listKey.add(workItem.getKey());
+                            }
                     );
 
                     adapterBookList= new BookListAdapter(items);
@@ -108,4 +119,5 @@ public class Home extends Fragment {
             }
         });
     }
+
 }
