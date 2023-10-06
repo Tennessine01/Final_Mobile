@@ -48,7 +48,7 @@ public class LibraryListAdapter extends RecyclerView.Adapter<LibraryListAdapter.
     public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.title.setText(listBookSelected.get(position).getTitle());
 
-        int drawableResourceId=holder.itemView.getContext().getResources().getIdentifier("book5","drawable",holder.itemView.getContext().getPackageName());
+        int drawableResourceId=holder.itemView.getContext().getResources().getIdentifier("default_book","drawable",holder.itemView.getContext().getPackageName());
 
         Glide.with(holder.itemView.getContext())
                 .load(listBookSelected.get(position).getPicUrl())
@@ -80,16 +80,15 @@ public class LibraryListAdapter extends RecyclerView.Adapter<LibraryListAdapter.
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView title, minusItem;
-        ImageView pic;
+        TextView title;
+        ImageView pic, minusItem;
         TextView totalEachItem, num;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.titleTxt);
             pic = itemView.findViewById(R.id.pic);
-            minusItem = itemView.findViewById(R.id.minusCartBtn);
-            //num = itemView.findViewById(R.id.numberItemTxt);
+            minusItem = itemView.findViewById(R.id.remove_book);
         }
     }
 }

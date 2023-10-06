@@ -28,7 +28,6 @@ public class MyLibrary extends Fragment {
     private RecyclerView recyclerViewList;
     private ManagementMyLibrary managementMyLibrary;
     private TextView totalFeeTxt, taxTxt, deliveryTxt, totalTxt, emptyTxt;
-
     private View view_list;
     private double tax;
     private ScrollView scrollView;

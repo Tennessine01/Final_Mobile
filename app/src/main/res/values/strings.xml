@@ -53,6 +53,10 @@
     <string name="Add">Add to your library</string>
     <string name="Read">Read book</string>
     <string name="Description">Description</string>
+    <string name="name">Username</string>
+    <string name="love">Love</string>
+    <string name="juvenile_literature">Juvenile Literature</string>
+    <string name="dance">Dance</string>
 
     <string name="Welcome_back">Welcome back</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>

@@ -33,12 +33,11 @@ import vn.edu.usth.mylogin.SubjectBook.BookApi;
 public class DetailActivity extends AppCompatActivity {
     private static final String BASE_URL = "https://openlibrary.org";
     private Button addToLibraryBtn;
-    private TextView plusBtn, minusBtn, titleTxt, feeTxt, descriptionTxt, numberOrderTxt, authorTxt, ratingTxt, timeTxt;
+    private TextView titleTxt, descriptionTxt, authorTxt, ratingTxt, timeTxt;
     private ImageView picBook;
 
     private Button readBookBtn;
     private BookDomain object;
-    private int numberOrder = 1;
     private ManagementMyLibrary managementMyLibrary;
 
     @Override
@@ -55,7 +54,7 @@ public class DetailActivity extends AppCompatActivity {
     private void getBundle() {
         object = (BookDomain) getIntent().getSerializableExtra("object");
 
-        int drawableResourceId = this.getResources().getIdentifier("book5", "drawable", this.getPackageName());
+        int drawableResourceId = this.getResources().getIdentifier("default_book", "drawable", this.getPackageName());
         Glide.with(this)
                 .load(object.getPicUrl()).error(drawableResourceId)
                 .into(picBook);
