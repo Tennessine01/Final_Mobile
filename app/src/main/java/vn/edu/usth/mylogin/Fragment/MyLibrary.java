@@ -56,7 +56,7 @@ public class MyLibrary extends Fragment {
 
         recyclerViewList.setAdapter(adapter);
 
-        Log.d("dungsobin", "SIZE = " + managementMyLibrary.getListBook().size());
+        Log.d("nguyen", "SIZE = " + managementMyLibrary.getListBook().size());
 
 //        if(managementMyLibrary.getListBook().isEmpty()){
 //            emptyTxt.setVisibility(View.VISIBLE);
@@ -70,7 +70,7 @@ public class MyLibrary extends Fragment {
     private void removeFromList(int position) {
         ArrayList<BookDomain> bookDomainList = managementMyLibrary.getListBook();
         if (bookDomainList != null && bookDomainList.size() > position) {
-            managementMyLibrary.minusNumberFood(bookDomainList, position, new ChangeNumberItemsListener() {
+            managementMyLibrary.minusNumberBook(bookDomainList, position, new ChangeNumberItemsListener() {
                 @Override
                 public void changed() {
 
@@ -78,7 +78,6 @@ public class MyLibrary extends Fragment {
             });
         }
     }
-
 
     private void initView(View view) {
         recyclerViewList = view.findViewById(R.id.myLibrary_view);

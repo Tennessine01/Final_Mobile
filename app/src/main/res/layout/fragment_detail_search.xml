@@ -5,28 +5,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#f3f3f3"
-    tools:context=".Fragment.DetailActivityBook">
+    tools:context=".Fragment.SearchActivity">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
                 <ImageView
-                    android:id="@+id/bookPic2"
+                    android:id="@+id/bookPic"
                     android:layout_width="wrap_content"
                     android:layout_height="365dp"
                     android:scaleType="centerCrop"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.496"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
-
+                    app:layout_constraintTop_toTopOf="parent" />
                 <LinearLayout
                     android:id="@+id/linearLayout"
                     android:layout_width="match_parent"
@@ -35,14 +37,14 @@
                     android:orientation="horizontal"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/bookPic2">
+                    app:layout_constraintTop_toBottomOf="@+id/bookPic">
 
                     <TextView
                         android:id="@+id/titleTxt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Book name"
+                        android:text="@string/Book_name"
                         android:textColor="@color/black"
                         android:textSize="24dp"
                         android:textStyle="bold" />
@@ -51,7 +53,7 @@
                 <LinearLayout
                     android:id="@+id/linearLayout2"
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
+                    android:layout_height="80dp"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="24dp"
@@ -66,12 +68,13 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="0.33">
+
                         <ImageView
                             android:id="@+id/clock"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="12dp"
-                            android:layout_marginTop="12dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="16dp"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             app:srcCompat="@drawable/time" />
@@ -96,6 +99,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="8dp"
+                            android:text="           "
                             android:textColor="@color/black"
                             app:layout_constraintEnd_toEndOf="@+id/time_text"
                             app:layout_constraintStart_toStartOf="@+id/clock"
@@ -115,8 +119,8 @@
 
                         <ImageView
                             android:id="@+id/person_icon"
-                            android:layout_width="21dp"
-                            android:layout_height="23dp"
+                            android:layout_width="23dp"
+                            android:layout_height="27dp"
                             android:layout_marginStart="16dp"
                             android:layout_marginTop="16dp"
                             app:layout_constraintStart_toStartOf="parent"
@@ -142,8 +146,7 @@
                             android:id="@+id/AuthorTxt"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:padding="4dp"
-                            android:paddingLeft="12dp"
+                            android:layout_margin="8dp"
                             android:text=""
                             android:textColor="@color/black"
                             app:layout_constraintEnd_toEndOf="@+id/author_txt"
@@ -188,15 +191,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="8dp"
-                            android:text="       c       "
+                            android:text="            "
                             android:textColor="@color/black"
                             app:layout_constraintStart_toStartOf="@+id/star"
                             app:layout_constraintTop_toBottomOf="@+id/star" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </LinearLayout>
-
                 <TextView
-                    android:id="@+id/descriptionTxt2"
+                    android:id="@+id/descriptionTxt"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="24dp"
@@ -206,8 +208,20 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
-
-
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/addToLibraryBtn"
+                    style="@android:style/Widget.Button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="24dp"
+                    android:background="@drawable/green_button_background"
+                    android:text="@string/Add"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@id/readbook_btn"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/descriptionTxt" />
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/readbook_btn"
                     style="@android:style/Widget.Button"
@@ -215,16 +229,18 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="24dp"
                     android:layout_marginBottom="50dp"
-                    android:background="@color/button"
+                    android:background="@drawable/green_button_background"
                     android:text="@string/Read"
                     android:textColor="@color/white"
                     android:textSize="20sp"
-                    app:layout_constraintTop_toBottomOf="@id/descriptionTxt2"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/descriptionTxt"/>
+                    app:layout_constraintStart_toStartOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="vertical"/>
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

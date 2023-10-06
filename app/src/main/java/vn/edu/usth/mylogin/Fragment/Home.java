@@ -30,7 +30,7 @@ import vn.edu.usth.mylogin.SubjectBook.SubjectApi;
 
 public class Home extends Fragment {
     private RecyclerView.Adapter adapterBookList;
-    private String[] subjects = {"love", "juvenile_literature", "dance"};
+    private String[] subjects = {"painting", "juvenile_literature", "physics"};
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -48,26 +48,18 @@ public class Home extends Fragment {
     }
 
     private void initRecyclerview(String subject, RecyclerView rc) {
-        //tạo danh sách rỗng để chứa các đối tượng bookdomain
         ArrayList<BookDomain> items = new ArrayList<>();
 
-        //thiết lập recycler view để hiển thị danh sách theo chiều ngang
         rc.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
         String BASE_URL = "https://openlibrary.org";
-
-        //retrofit là thư viên dùng để tương tác với api
-        // đối tượng retrofit được tạo ra vưới địa chỉ url và dùng gson chuyển json thành object java
         Retrofit retrofit = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create()).build();
 
         SubjectApi subjectApi = retrofit.create(SubjectApi.class);
         int limit = 10;
-
-        //mở cuộc gọi API có limit là lấy 10 api trong 1 lần
-        Call<Subject> call = subjectApi.getLoveSubjects(subject, limit);
+        Call<Subject> call = subjectApi.getSubjects(subject, limit);
         call.enqueue(new Callback<Subject>() {
             @Override
             public void onResponse(Call<Subject> call, Response<Subject> response) {
-                //nếu gọi API thành công
                 if (response.isSuccessful()) {
                     Subject subject = response.body();
                     List<String> listTitle = new ArrayList<String>();

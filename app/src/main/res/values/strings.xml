@@ -59,8 +59,17 @@
     <string name="dance">Dance</string>
 
     <string name="Welcome_back">Welcome back</string>
-
-
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Biographies">Biographies</string>
+    <string name="Children">Children</string>
+    <string name="Fantasy">Fantasy</string>
+    <string name="Music">Music</string>
+    <string name="Medicine">Medicine</string>
+    <string name="Mystery">Mystery</string>
+    <string name="Topic">Topic\n</string>
+    <string name="Books">Books</string>
+    <string name="Results">Results</string>
+    <string name="Animal">Animal</string>
+    <string name="Fiction">Fiction</string>
+    <string name="Science">science</string>
 </resources>

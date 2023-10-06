@@ -67,7 +67,7 @@ public class LibraryListAdapter extends RecyclerView.Adapter<LibraryListAdapter.
 
 
 
-        holder.minusItem.setOnClickListener(v -> managementBook.minusNumberFood(listBookSelected, position, () -> {
+        holder.minusItem.setOnClickListener(v -> managementBook.minusNumberBook(listBookSelected, position, () -> {
             notifyDataSetChanged();
             changeNumberItemsListener.onClickListener(position);
             notifyDataSetChanged();// cho chac :))

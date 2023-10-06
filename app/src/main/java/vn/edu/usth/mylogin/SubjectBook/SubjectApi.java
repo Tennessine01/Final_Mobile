@@ -7,6 +7,6 @@ import retrofit2.http.Path;
 
 public interface SubjectApi {
     @GET("/subjects/{subject}.json")
-    Call<Subject> getLoveSubjects(@Path("subject") String subject, @Query("limit") int limit);
+    Call<Subject> getSubjects(@Path("subject") String subject, @Query("limit") int limit);
 }
 
