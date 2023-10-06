@@ -46,7 +46,7 @@ public class BookListAdapter extends RecyclerView.Adapter<BookListAdapter.ViewHo
         holder.timeTxt.setText(items.get(position).getTime() + " ");
         holder.AuthorTxt.setText("" + items.get(position).getAuthor());
 
-        int drawableResourceId = holder.itemView.getResources().getIdentifier("book5", "drawable", holder.itemView.getContext().getPackageName());
+        int drawableResourceId = holder.itemView.getResources().getIdentifier("default_book", "drawable", holder.itemView.getContext().getPackageName());
 
         Glide.with(holder.itemView.getContext())
                 .load(items.get(position).getPicUrl())

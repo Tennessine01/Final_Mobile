@@ -9,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -21,7 +22,13 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 
+import vn.edu.usth.mylogin.Fragment.Profile;
 import vn.edu.usth.mylogin.Fragment.Home;
 import vn.edu.usth.mylogin.Fragment.MyLibrary;
 import vn.edu.usth.mylogin.Fragment.Search;
@@ -39,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     NavigationView navigationView2;
     Toolbar toolbar;
     ActionBarDrawerToggle toggle;
+    FirebaseFirestore fireStore;
 
 
     @Override
@@ -46,15 +54,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         auth = FirebaseAuth.getInstance();
+        fireStore = FirebaseFirestore.getInstance();
+
         textView = findViewById(R.id.user_details);
+        String userID;
+
         user = auth.getCurrentUser();
         if (user == null) {
             Intent intent = new Intent(getApplicationContext(), Login.class);
             startActivity(intent);
             finish();
         } else {
-            textView.setText(user.getEmail());
-        }
+            userID = user.getUid();
+            DocumentReference documentReference = fireStore.collection("users").document(userID);
+            documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+                        @Override
+                        public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                            textView.setText(value.getString("uName"));
+                        }
+        });
+        };
 
         drawerLayout = findViewById(R.id.drawer);
         toolbar = findViewById(R.id.toolbar);
@@ -93,6 +112,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (item.getItemId() == R.id.logout) {
             FirebaseAuth.getInstance().signOut();
             Intent intent = new Intent(getApplicationContext(), Login.class);
+            startActivity(intent);
+            finish();
+        }
+        if (item.getItemId() == R.id.profile)
+        {
+            Intent intent = new Intent(getApplicationContext(), Profile.class);
             startActivity(intent);
             finish();
         }
