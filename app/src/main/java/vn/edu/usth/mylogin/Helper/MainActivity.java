@@ -2,6 +2,7 @@ package vn.edu.usth.mylogin.Helper;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -54,9 +55,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         auth = FirebaseAuth.getInstance();
-        fireStore = FirebaseFirestore.getInstance();
 
-        textView = findViewById(R.id.user_details);
+//        textView = findViewById(R.id.user_details);
         String userID;
 
         user = auth.getCurrentUser();
@@ -64,15 +64,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Intent intent = new Intent(getApplicationContext(), Login.class);
             startActivity(intent);
             finish();
-        } else {
-            userID = user.getUid();
-            DocumentReference documentReference = fireStore.collection("users").document(userID);
-            documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
-                        @Override
-                        public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
-                            textView.setText(value.getString("uName"));
-                        }
-        });
+//        } else {
+//            try {
+//                fireStore = FirebaseFirestore.getInstance();
+//                userID = user.getUid();
+//                DocumentReference documentReference = fireStore.collection("users").document(userID);
+//                documentReference.addSnapshotListener(MainActivity.this, new EventListener<DocumentSnapshot>() {
+//                    @Override
+//                    public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+//                        textView.setText(value.getString("uName"));
+//                    }
+//            });} catch (NullPointerException exception) {
+//                System.out.println("Something went wrong.");
+//            }
+
         };
 
         drawerLayout = findViewById(R.id.drawer);

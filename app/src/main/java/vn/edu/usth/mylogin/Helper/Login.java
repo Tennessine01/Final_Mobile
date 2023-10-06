@@ -3,6 +3,7 @@ package vn.edu.usth.mylogin.Helper;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -17,18 +18,24 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import vn.edu.usth.mylogin.R;
 
 public class Login extends AppCompatActivity {
     TextView emailLoginText, passwordLoginText;
     FirebaseAuth mAuth;
+    FirebaseFirestore fStore;
     Button buttonLogin;
 
     @Override
     public void onStart() {
         super.onStart();
+        fStore = FirebaseFirestore.getInstance();
+
+
         FirebaseUser currentUser = mAuth.getCurrentUser();
+
         if(currentUser != null){
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);
@@ -44,8 +51,11 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         mAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
+
         emailLoginText = findViewById(R.id.email_address);
         passwordLoginText = findViewById(R.id.password);
+
         buttonLogin = findViewById(R.id.login);
         newRegister = findViewById(R.id.register);
         newRegister.setOnClickListener(new View.OnClickListener(){
