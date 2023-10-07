@@ -111,8 +111,9 @@
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/result_books"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="272dp"
                         android:clipToPadding="false"
+                        android:background="@color/primary4"
                         android:paddingStart="16dp"
                         android:paddingEnd="16dp"
                         android:layout_marginBottom="50dp"/>

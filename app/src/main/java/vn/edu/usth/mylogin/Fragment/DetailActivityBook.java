@@ -2,6 +2,8 @@ package vn.edu.usth.mylogin.Fragment;
 
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,7 +19,7 @@ import vn.edu.usth.mylogin.SubjectBook.Book;
 import vn.edu.usth.mylogin.SubjectBook.BookApi;
 
 public class DetailActivityBook extends AppCompatActivity {
-    //private Button addToCartBtn;
+    private Button readBookBtn;
     private TextView titleTxt, descriptionTxt, authorTxt, ratingTxt, timeTxt;
     private ImageView picBook;
     private BookDomain object;
@@ -32,7 +34,6 @@ public class DetailActivityBook extends AppCompatActivity {
     }
 
 
-
     private void getBundle() {
         object = (BookDomain) getIntent().getSerializableExtra("object");
 
@@ -41,7 +42,12 @@ public class DetailActivityBook extends AppCompatActivity {
                 .load(object.getPicUrl()).error(drawableResourceId)
                 .into(picBook);
 
-
+                readBookBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setContentView(R.layout.fragment_readbook);
+            }
+        });
         titleTxt.setText(object.getTitle());
         descriptionTxt.setText(object.getDescription());
         ratingTxt.setText(object.getRating() + " ");
@@ -56,5 +62,6 @@ public class DetailActivityBook extends AppCompatActivity {
         picBook = findViewById(R.id.bookPic2);
         authorTxt = findViewById(R.id.AuthorTxt);
         ratingTxt = findViewById(R.id.ratingTxt);
+        readBookBtn = findViewById(R.id.readbook_btn);
     }
 }
